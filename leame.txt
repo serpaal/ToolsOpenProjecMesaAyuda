@@ -1,0 +1,26 @@
+Proceso de instalacion
+1. Generar nueva applicacion nest new name-project
+2. Instalar dependencias para base de datos:
+
+$ npm install --save @nestjs/sequelize sequelize sequelize-typescript pg
+$ npm install --save-dev @types/sequelize
+
+3. Instalar dependencia para manejar variables de entorno
+npm install dotenv
+--debe ir en la primera linea de main.ts
+
+4. Instalar dependencias para validation pipes
+
+npm install class-validator
+npm install class-transformer
+
+5. Modulo auth dependencias:
+$ npm i --save @nestjs/jwt
+npm install crypto-js
+
+6. Instalar dependencias de estrategias de autenticacion jwt
+$ npm install --save @nestjs/passport passport passport-jwt
+$ npm install --save-dev @types/passport-jwt
+
+7. Instalar winston para logs
+npm install winston
