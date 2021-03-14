@@ -3,7 +3,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class SetRequerimientosRequest {
   @IsNotEmpty()
-  @IsString()
+  //@IsString()
   @ApiProperty()
-  public requerimientos_json: string;   
+  public requerimientos_json: any;   
 }
