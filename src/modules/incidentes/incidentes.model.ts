@@ -1,18 +1,18 @@
 import { Column, Model, Table, DataType, PrimaryKey, AutoIncrement, Unique, BelongsToMany } from 'sequelize-typescript';
 
 @Table({
-  tableName:'requerimientos',
+  tableName:'incidentes',
   schema: 'public',
   underscored: true,
 })
-export class Requerimientos extends Model<Requerimientos> {
+export class Incidentes extends Model<Incidentes> {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
   public id: number;  
 
   @Column(DataType.STRING)
-  nro_req: string;
+  nro_inc: string;
 
   @Column(DataType.DATE)
   fecha_sol: Date;
@@ -21,20 +21,17 @@ export class Requerimientos extends Model<Requerimientos> {
   nomb_comp: string;
 
   @Column(DataType.STRING)
-  descrip_req: string;
-
-  @Column(DataType.STRING)
-  justific: string;
-
-  @Column(DataType.STRING)
-  cod_u_rbl: string;
+  arch_adj: string;
 
   @Column(DataType.STRING)
   observ: string;
 
   @Column(DataType.STRING)
-  arch_adj: string;
+  descrip: string;
 
+  @Column(DataType.STRING)
+  cod_u_rbl: string;
+  
   @Column(DataType.STRING)
   estado: string;
 

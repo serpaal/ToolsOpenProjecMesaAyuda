@@ -2,7 +2,7 @@ import { IsDate, IsNotEmpty, IsString, IsNumber, IsOptional, Length } from 'clas
 import { Type, Transform } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
-export class UpdateRequerimientoRequest {
+export class UpdateIncidenteRequest {
   @IsNumber()
   @IsOptional()
   @ApiProperty()
@@ -11,7 +11,7 @@ export class UpdateRequerimientoRequest {
   @IsString()
   @IsOptional()
   @ApiPropertyOptional()
-  public nro_req: string;
+  public nro_inc: string;
   
   @IsDate()
   @Type(() => Date)
@@ -23,32 +23,27 @@ export class UpdateRequerimientoRequest {
   @IsOptional()
   @ApiPropertyOptional()
   public nomb_comp: string; 
-
-  @IsString()
-  @IsOptional()
-  @ApiPropertyOptional()
-  public descrip_req: string; 
-
-  @IsString()
-  @IsOptional()
-  @ApiPropertyOptional()
-  public justific: string; 
-
-  @IsString()
-  @IsOptional()
-  @ApiPropertyOptional()
-  public cod_u_rbl: string; 
-
-  @IsString()
-  @IsOptional()
-  @ApiPropertyOptional()
-  public observ: string; 
-
+  
   @IsString()
   @IsOptional()
   @ApiPropertyOptional()
   public arch_adj: string; 
 
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional()
+  public observ: string; 
+  
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional()
+  public descrip: string; 
+
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional()
+  public cod_u_rbl: string; 
+  
   @IsString()
   @IsOptional()
   @ApiPropertyOptional()

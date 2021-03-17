@@ -36,7 +36,7 @@ export class RequerimientosService implements IRequerimientosService {
         }  
     }
 
-     public async setRequerimientosJson(data: any): Promise<any> {
+    public async setRequerimientosJson(data: any): Promise<any> {
         try {
             return await this.sequelizeInstance
             .query(
@@ -52,6 +52,34 @@ export class RequerimientosService implements IRequerimientosService {
             )
             .then(data => {
                 let response : any = JSON.parse(data.set_requerimientos_from_json);
+                if(response.hasOwnProperty('error'))
+                    throw new HttpException(response.error, HttpStatus.BAD_REQUEST)
+                return response;
+            })
+            .catch(error => {
+                throw new HttpException(error, HttpStatus.BAD_REQUEST)
+            });    
+        } catch(e){
+            throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+        }        
+    }
+
+    public async updateRequerimientosJson(data: any): Promise<any> {
+        try {
+            return await this.sequelizeInstance
+            .query(
+                    'SELECT update_requerimientos_from_json(:p_requerimientos_json)',
+                    { 
+                        replacements: { 
+                            p_requerimientos_json: data.requerimientos_json
+                        }, 
+                        plain: true,
+                        raw: true,
+                        type: this.sequelizeInstance.QueryTypes.SELECT 
+                    }
+            )
+            .then(data => {
+                let response : any = JSON.parse(data.update_requerimientos_from_json);
                 if(response.hasOwnProperty('error'))
                     throw new HttpException(response.error, HttpStatus.BAD_REQUEST)
                 return response;
@@ -82,6 +110,9 @@ export class RequerimientosService implements IRequerimientosService {
                     :p_open_project_id,
                     :p_open_project_title,
                     :p_open_project_status, 
+                    :p_open_project_percentage_done, 
+                    :p_open_project_assignee, 
+                    :p_open_project_responsible, 
                     :p_username
                 )`,
                 { 
@@ -98,7 +129,10 @@ export class RequerimientosService implements IRequerimientosService {
                         p_estado: requerimiento.estado,
                         p_open_project_id: requerimiento.open_project_id.toString(),
                         p_open_project_title: requerimiento.open_project_title,
-                        p_open_project_status: requerimiento.open_project_status, 
+                        p_open_project_status: requerimiento.open_project_status,
+                        p_open_project_percentage_done: requerimiento.open_project_percentage_done, 
+                        p_open_project_assignee: requerimiento.open_project_assignee, 
+                        p_open_project_responsible: requerimiento.open_project_responsible,  
                         p_username: requerimiento.username 
                     }, 
                     plain: true,

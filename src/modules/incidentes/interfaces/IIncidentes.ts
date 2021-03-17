@@ -1,13 +1,12 @@
-export interface IRequerimientos {
+export interface IIncidentes {
     id: number;  
-    nro_req: string;
+    nro_inc: string;
     fecha_sol: Date;
     nomb_comp: string;
-    descrip_req: string;
-    justific: string;
-    cod_u_rbl: string;
-    observ?: string;
     arch_adj?: string;
+    observ?: string;
+    descrip: string;
+    cod_u_rbl: string;
     estado: string;
     open_project_id?: string;
     open_project_title?: string;

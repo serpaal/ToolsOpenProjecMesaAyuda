@@ -6,9 +6,10 @@ import { AuthModule } from './modules/auth/auth.module';
 import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
 import { AppService } from './app.service';
 import { RequerimientosModule } from './modules/requerimientos/requerimientos.module';
+import { IncidentesModule } from './modules/incidentes/incidentes.module';
 
 @Module({
-  imports: [DatabaseModule, AuthModule, RequerimientosModule],
+  imports: [DatabaseModule, AuthModule, RequerimientosModule, IncidentesModule],
   controllers: [AppController],
   providers: [
     AppService,

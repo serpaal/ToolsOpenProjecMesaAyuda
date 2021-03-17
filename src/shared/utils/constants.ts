@@ -13,7 +13,8 @@ export const VARCHAR_FIELD_LENGTH: number = 255;
 export const TEXT_FIELD_LENGTH: number = 21844;
 
 export const REQUERIMIENTOS_MODEL_FILTER_PROPERTIES = [
-    'id', 'nro_req',
+    'id', 
+    'nro_req',
     'fecha_sol',
     'nomb_comp',
     'descrip_req',
@@ -21,6 +22,24 @@ export const REQUERIMIENTOS_MODEL_FILTER_PROPERTIES = [
     'cod_u_rbl',
     'observ:',
     'arch_adj',
+    'estado',
+    'open_project_id',
+    'open_project_title',
+    'open_project_status',
+    'username',  
+    'created_at',
+    'updated_at'
+];
+
+export const INCIDENTES_MODEL_FILTER_PROPERTIES = [
+    'id', 
+    'nro_inc',
+    'fecha_sol',
+    'arch_adj',
+    'observ:',
+    'nomb_comp',
+    'descrip',
+    'cod_u_rbl',
     'estado',
     'open_project_id',
     'open_project_title',

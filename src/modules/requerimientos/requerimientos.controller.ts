@@ -5,6 +5,7 @@ import { Where } from '../../shared/decorators/where.decorator';
 import { REQUERIMIENTOS_MODEL_FILTER_PROPERTIES } from '../../shared/utils/constants';
 import { SetRequerimientosRequest } from './request/set-requerimientos.request';
 import { UpdateRequerimientoRequest } from './request/update-requerimiento.request';
+import { UpdateRequerimientosRequest } from './request/update-requerimientos.request';
 
 @Controller('requerimientos')
 export class RequerimientosController {
@@ -48,6 +49,28 @@ export class RequerimientosController {
         return res.status(HttpStatus.CREATED).json(response);
     }
 
+    @Post('/update_requerimientos_json')
+    @ApiOperation({
+        description: 'Actualizar Requerimientos desde JSON'
+    })
+    @ApiBody({
+        description:
+            'The request body should contain a schema that holds the content for the requerimientos',
+        type: UpdateRequerimientosRequest,
+        required: true
+    })
+    @ApiResponse({
+        status: 201,
+        description:
+            'Indicates the new role was successfully saved. The response body will be the news requerimientos.'
+    })
+    public async updateFromJson(@Body() updateRequerimientosRequest:UpdateRequerimientosRequest, @Res() res) {
+        if (!updateRequerimientosRequest || (updateRequerimientosRequest && Object.keys(updateRequerimientosRequest).length === 0))
+            return res.status(HttpStatus.BAD_REQUEST).send('Missing body.');
+        const response = await this.requerimientosService.updateRequerimientosJson(updateRequerimientosRequest);
+        return res.status(HttpStatus.CREATED).json(response);
+    }
+
     @Put('/:id')
     @ApiOperation({
         description: 'Update the specific requerimiento'
@@ -67,7 +90,7 @@ export class RequerimientosController {
     @ApiResponse({
         status: 201,
         description:
-            'Indicates the role was successfully updated. The response body will be role updated.'
+            'Indicates the requerimiento was successfully updated. The response body will be requerimiento updated.'
     })
     public async update( @Param('id') requerimientoId: number, @Body() updateRequerimientoRequest:UpdateRequerimientoRequest, @Res() res) {
         if (!updateRequerimientoRequest || (updateRequerimientoRequest && Object.keys(updateRequerimientoRequest).length === 0))

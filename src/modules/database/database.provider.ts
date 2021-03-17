@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Config } from '../../shared/config';
 import { databaseConfig } from '../../shared/config/database.config';
+import { Incidentes } from '../incidentes/incidentes.model';
 import { Requerimientos } from '../requerimientos/requerimientos.model';
 
 export const databaseProvider = {
@@ -27,7 +28,8 @@ export const databaseProvider = {
 
         const sequelize = new Sequelize(config);
         sequelize.addModels([
-            Requerimientos
+            Requerimientos,
+            Incidentes
         ]);
         /* await sequelize.sync(); */
         return sequelize;
