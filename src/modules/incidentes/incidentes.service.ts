@@ -96,6 +96,7 @@ export class IncidentesService implements IIncidentesService {
                     :p_open_project_percentage_done, 
                     :p_open_project_assignee, 
                     :p_open_project_responsible, 
+                    :p_open_project_priority, 
                     :p_username
                 )`,
                 { 
@@ -115,6 +116,7 @@ export class IncidentesService implements IIncidentesService {
                         p_open_project_percentage_done: incidente.open_project_percentage_done, 
                         p_open_project_assignee: incidente.open_project_assignee, 
                         p_open_project_responsible: incidente.open_project_responsible,  
+                        p_open_project_priority: incidente.open_project_priority,  
                         p_username: incidente.username 
                     }, 
                     plain: true,

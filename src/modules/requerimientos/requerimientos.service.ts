@@ -113,6 +113,7 @@ export class RequerimientosService implements IRequerimientosService {
                     :p_open_project_percentage_done, 
                     :p_open_project_assignee, 
                     :p_open_project_responsible, 
+                    :p_open_project_priority, 
                     :p_username
                 )`,
                 { 
@@ -133,6 +134,7 @@ export class RequerimientosService implements IRequerimientosService {
                         p_open_project_percentage_done: requerimiento.open_project_percentage_done, 
                         p_open_project_assignee: requerimiento.open_project_assignee, 
                         p_open_project_responsible: requerimiento.open_project_responsible,  
+                        p_open_project_priority: requerimiento.open_project_priority,
                         p_username: requerimiento.username 
                     }, 
                     plain: true,

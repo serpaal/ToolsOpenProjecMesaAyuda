@@ -15,6 +15,7 @@ export interface IRequerimientos {
     open_project_percentage_done?: number; 
     open_project_assignee?: string; 
     open_project_responsible?: string; 
+    open_project_priority?: string;
     username: string;     
     created_at?: Date;
     updated_at?: Date;

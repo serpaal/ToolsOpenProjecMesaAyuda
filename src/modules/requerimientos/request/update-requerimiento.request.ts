@@ -87,5 +87,10 @@ export class UpdateRequerimientoRequest {
   @IsString()
   @IsOptional()
   @ApiPropertyOptional()
+  public open_project_priority: string; 
+
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional()
   public username: string; 
 }

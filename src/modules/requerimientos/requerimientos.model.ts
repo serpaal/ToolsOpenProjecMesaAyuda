@@ -55,6 +55,9 @@ export class Requerimientos extends Model<Requerimientos> {
 
   @Column(DataType.STRING)
   open_project_responsible: string;
+
+  @Column(DataType.STRING)
+  open_project_priority: string;
   
   @Column(DataType.STRING)
   username: string;  
