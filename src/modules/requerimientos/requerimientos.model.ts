@@ -42,6 +42,9 @@ export class Requerimientos extends Model<Requerimientos> {
   open_project_id: string;
 
   @Column(DataType.STRING)
+  open_project_identifier: string;
+
+  @Column(DataType.STRING)
   open_project_title: string;
 
   @Column(DataType.STRING)

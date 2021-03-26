@@ -57,6 +57,11 @@ export class UpdateIncidenteRequest {
   @IsString()
   @IsOptional()
   @ApiPropertyOptional()
+  public open_project_identifier: string; 
+
+  @IsString()
+  @IsOptional()
+  @ApiPropertyOptional()
   public open_project_title: string; 
 
   @IsString()

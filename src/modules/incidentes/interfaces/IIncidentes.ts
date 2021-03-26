@@ -9,6 +9,7 @@ export interface IIncidentes {
     cod_u_rbl: string;
     estado: string;
     open_project_id?: string;
+    open_project_identifier?: string;
     open_project_title?: string;
     open_project_status?: string;
     open_project_percentage_done?: number; 
